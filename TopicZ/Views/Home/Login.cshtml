@@ -1,0 +1,47 @@
+﻿@model TopicZ.ViewModel.LoginModel
+
+@{
+
+    ViewBag.Title = "Login";
+
+}
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true, "Login failed. Enter valid credentials");
+
+    <div>
+        <fieldset>
+            <legend>Login</legend>
+            <br />
+            <div class="editor-label">
+                @Html.LabelFor(u => u.Email)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(u => u.Email)
+                @Html.ValidationMessageFor(u => u.Email)
+            </div>
+            <br />
+            <div class="editor-label">
+                @Html.LabelFor(u => u.Password)
+            </div>
+            <div class="editor-field">
+                @Html.PasswordFor(u => u.Password)
+                @Html.ValidationMessageFor(u => u.Password)
+            </div>
+            <br />
+            <input type="submit" value="Login" />
+
+        </fieldset>
+
+
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

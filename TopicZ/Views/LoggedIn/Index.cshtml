@@ -1,0 +1,46 @@
+﻿@model TopicZ.ViewModel.LoggedInIndexViewModel
+
+@{ 
+    Layout = "~/Views/Shared/_LoggedInLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <table>
+            <tr>
+                <th>Ten Latest Topics</th>
+            </tr>
+            @{if (@Model.TopTenTopics.TenLatestTopics != null)
+            {
+                foreach (var row in @Model.TopTenTopics.TenLatestTopics)
+                {
+                    <tr>
+                        @*<td>@Html.ActionLink(@row.TopicHeadline, "RedirectToAnswerPage", "Answer", null, new { id = 1 })</td>*@
+                        <td>
+                            @using (Html.BeginForm("RedirectToAnswerPage", "Answer", FormMethod.Post))
+                            {
+                                 
+                                <input id="TopicId" name="TopicId" type="hidden" value=@row.TopicId />
+                                @Html.HiddenFor(m => m.TopicId)
+
+                                <input type="submit" class="TopicLinks" value="@row.TopicHeadline">
+                            }
+                        
+                        </td>
+                        <td>@row.TopicDateTime.ToShortDateString()&nbsp;&nbsp;</td>
+                        <td>@row.TopicDateTime.ToShortTimeString()</td>
+                    </tr>
+                }
+            }}
+
+        </table> 
+
+    </div>
+</body>
+</html>

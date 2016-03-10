@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "TopicZ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+}
+
+<div class="jumbotron">
+    <h2>Vad är topicZ?</h2>
+    <br />
+    <p>
+        TopicZ är en lättanvänd webbapplikation där man skapar sitt eget närverk genom ett privat forum med likasinnade.
+        Du har nu möjligheten att skapa intressanta diskutioner med andra genom att enkelt skapa tråd. Med din skapade tråd
+        kan du har du möjlighet att bjuda in intressenter till ett privat chatrum. <br /> Samla poäng och uppgradera din avatar genom att svara
+        på andra trådar och delta i olika forum.
+    <p></p>En spännande värld väntar..<p>
+    </p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <b>Registrera dig redan idag</b>
+        <div>
+            @Html.ActionLink("Registrering", "Register", "Home")
+        </div>
+
+    </div>
+    <div class="col-md-4">
+        <b>
+            Skapa ett tråd
+        </b>
+        <div>
+            @Html.ActionLink("Skapa ditt tråd", "Login", "Home")
+        </div>
+    </div>
+    <div class="col-md-4">
+        <b>Skapa ett chattrum </b>
+        <div>
+            @Html.ActionLink("Skapa chatrum", "Chat", "LoggedIn")
+        </div>
+    </div>
+</div>

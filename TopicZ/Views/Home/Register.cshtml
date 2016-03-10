@@ -1,0 +1,64 @@
+﻿@model TopicZ.ViewModel.RegisterModel
+
+@{
+  
+    ViewBag.Title = "Register";
+
+}
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true, "Create user failed. Enter valid credentials");
+
+    <div>
+        <fieldset>
+            <legend>Create new user</legend>
+            <br />
+            <div class="editor-label">
+                @Html.LabelFor(u=> u.Name)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(u => u.Name)
+                @Html.ValidationMessageFor(u => u.Name)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(u => u.Email)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(u => u.Email)
+                @Html.ValidationMessageFor(u => u.Email)
+                
+            </div>
+            <br />
+            <div class="editor-label">
+                @Html.LabelFor(u => u.Password)
+            </div>
+            <div class="editor-field">
+                @Html.PasswordFor(u => u.Password)
+                @Html.ValidationMessageFor(u => u.Password)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(u => u.ConfirmedPassword)
+            </div>
+            <div class="editor-field">
+                @Html.PasswordFor(u => u.ConfirmedPassword)
+                @Html.ValidationMessageFor(u => u.ConfirmedPassword)
+            </div>
+            <br />
+            <input type="submit" value="Create user" />
+            
+        </fieldset>
+
+
+    </div>
+}
+
+
+<div>
+    
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

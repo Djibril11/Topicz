@@ -1,0 +1,39 @@
+﻿@model TopicZ.ViewModel.CreateTopicModel
+
+@{
+
+    ViewBag.Title = "Create Topic";
+    Layout = "~/Views/Shared/_LoggedInLayout.cshtml";
+
+}
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true, "Enter a valid Topic");
+
+    <div>
+        <fieldset>
+            <legend>Create new topic</legend>
+            <br />
+            <div class="editor-label">
+                @Html.LabelFor(u => u.TopicHeader)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(u => u.TopicHeader)
+                @Html.ValidationMessageFor(u => u.TopicHeader)
+            </div>
+            <br />
+            <input type="submit" value="Create Topic" />
+        </fieldset>
+
+        
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

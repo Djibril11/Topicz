@@ -1,0 +1,49 @@
+﻿@model TopicZ.Models.AnswerModel
+
+@{
+    Layout = "~/Views/Shared/_LoggedInLayout.cshtml"; 
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true, "Enter a valid Topic");
+
+            <div>
+                <fieldset>
+                    <legend>Answer Topic</legend>
+                    <br />
+                    <div class="editor-label">
+                        @Html.LabelFor(u => u.AnswerBody)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(u => u.AnswerBody)
+                        @Html.ValidationMessageFor(u => u.AnswerBody)
+                    </div>
+                    <br />
+                    <input type="submit" value="Answer" />
+                </fieldset>
+
+
+            </div>
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index", "LoggedIn")
+        </div>
+
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }
+    
+    </div>
+</body>
+</html>
